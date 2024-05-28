@@ -1,17 +1,9 @@
-import { animated, useSpring } from "@react-spring/web";
+// import { animated, useSpring } from '@react-spring/web';
 
 const Bar = ({ amplitude, multiplier }) => {
-  const springProps = useSpring({
-    height: amplitude * multiplier,
-    from: { height: 10 }, // Initial height
-  });
+  console.log(amplitude * multiplier);
 
-  return (
-    <animated.div
-      style={springProps}
-      className="min-h-2 min-w-2 bg-white rounded-lg"
-    ></animated.div>
-  );
+  return <div className="min-h-2 min-w-2 bg-white rounded-lg"></div>;
 };
 
 export default Bar;
