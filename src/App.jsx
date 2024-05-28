@@ -1,16 +1,22 @@
 import './App.css';
+import Bar from './components/bars';
 import { useAudio } from './hooks/audio';
 
 function App() {
   // Get user audio
-  const { amplitude } = useAudio();
+  const { startRecording, amplitude } = useAudio();
 
-  console.log(amplitude)
 
   return (
-    <section style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-      {Math.floor(amplitude)}
+    <>
+    <button type="button" onClick={startRecording} className="absolute bottom-0 left-0 m-2 w-6 h-6 rounded-full bg-red-600">🎤</button>
+    <section className="flex items-center gap-2">
+      <Bar amplitude={amplitude} multiplier={.4}/>
+      <Bar amplitude={amplitude} multiplier={1}/>
+      <Bar amplitude={amplitude} multiplier={1}/>
+      <Bar amplitude={amplitude} multiplier={.4}/>
     </section>
+    </>
   );
 }
 
