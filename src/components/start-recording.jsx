@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 
+const shrinkConfig = { tension: 170, friction: 20, duration: 600 };
+const fadeConfig = { duration: 200 };
+
 const StartRecordingButton = ({ startRecording }) => {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -11,13 +14,13 @@ const StartRecordingButton = ({ startRecording }) => {
 
   const shrinkProps = useSpring({
     transform: isClicked ? "scale(0)" : "scale(1)",
-    config: { tension: 170, friction: 20, duration: 600 },
+    config: shrinkConfig,
   });
 
   const fadeProps = useSpring({
     opacity: isClicked ? 0 : 1,
     delay: 200,
-    config: { duration: 200 },
+    config: fadeConfig,
   });
 
   return (
